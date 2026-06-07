@@ -296,6 +296,9 @@ function runGameLoop() {
   targetNotesX = isShowingNotes ? 0 : -480; // 修正：統一目標座標為 -480
   notesX = lerp(notesX, targetNotesX, 0.15);
 
+  // 繪製分類筆記選單 (先繪製以便垃圾能蓋在筆記上方)
+  drawClassificationNotes();
+
   // 更新與繪製掉落中的符號
   textAlign(CENTER, CENTER);
   noStroke();
@@ -424,9 +427,6 @@ function runGameLoop() {
   updateAndDrawParticles();
   // 更新與繪製得分動畫文字
   updateAndDrawFloatingTexts();
-
-  // 繪製分類筆記選單 (需在 UI 之前繪製)
-  drawClassificationNotes();
 
   // UI 顯示
   push();
